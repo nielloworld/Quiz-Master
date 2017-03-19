@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Exam Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Exam items</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exam_records.each do |exam_record| %>
+      <tr>
+        <td><%= exam_record.user_id %></td>
+        <td><%= exam_record.exam_items %></td>
+        <td><%= link_to 'Show', exam_record %></td>
+        <td><%= link_to 'Edit', edit_exam_record_path(exam_record) %></td>
+        <td><%= link_to 'Destroy', exam_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exam Record', new_exam_record_path %>
