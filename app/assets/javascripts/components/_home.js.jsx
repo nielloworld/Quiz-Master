@@ -10,16 +10,17 @@ var Home = React.createClass({
 
   render: function() {
     return (
-      <div className="center card medium">
+      <div className="center card small">
             <div className="card-content ">
-              <span className="card-title">Welcome!{this.props.current_name}</span>
-              <p>you may now choose:</p>
+              <span className="card-title">Welcome {this.props.current_name}!</span>
+              <p>you may choose to:</p>
             </div>
             <div className="card-action">
               <div className="row">
-    <button></button><button></button>
+              <a href="#" className="waves-effect waves-light btn">Try the quiz</a>
+              <a href="#" className="waves-effect waves-light btn">review your quiz</a>
+              <a href="logout" className="waves-effect waves-light btn">Logout</a>
 			</div>
-
             </div>
           </div>
 			

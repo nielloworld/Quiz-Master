@@ -1,73 +1,40 @@
 var Questionaires = React.createClass({
   propTypes: {
-    user: React.PropTypes.array
+    questionaires: React.PropTypes.array
   },
   getInitialState: function() {
-    return {name: '', password: ''};
+  console.log(this.props.questionaires);
+    return {questionaire: '', answer: ''};
   },
-  handleNameChange: function(e) {
-    this.setState({ name: e.target.value });
-  },
-  handlePasswordChange: function(e) {
-    this.setState({ password: e.target.value });
-  },
-  handleSubmit: function(e) {
-    e.preventDefault();
-    var name = this.state.name.trim();
-    var password = this.state.password.trim();
-    if (!name || !password) {
-      return;
-    }
-    this.setState({ name: '', password: ''});
 
-    var user = {user: this.state.user}
-    this.setState({data: user});
-    $.ajax({
-      url: '/users/new',
-      dataType: 'json',
-      type: 'POST',
-      data: {user: user},
-      success: function(data) {
-        this.setState({data: user});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        this.setState({data: user});
-       console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
 
   render: function() {
+  var questionaires = this.props.questionaires.map(function(o) {
     return (
-     <div className="center row cardWelcome">
-        <div className="col s6 offset-s3">
-          <div className="card ">
-            <div className="card-content ">
-              <span className="card-title">Welcome!</span>
-              <p>This is a Quiz Master App. Please Login</p>
-            </div>
-            <div className="card-action">
-              <div className="row">
-              <form onSubmit={this.handleSubmit}>
-			        <div className="input-field col s6">
-			          <i className="material-icons prefix">account_circle</i>
-			          <input ref='name' id="icon_prefix" type="text" className="validate" value={this.state.name} onChange={this.handleNameChange} />
-			          <label htmlFor="icon_prefix">Name</label>
-			        </div>
-			        <div className="input-field col s6">
-			          <i className="material-icons prefix">lock</i>
-			          <input ref='password' id="icon_password" type="password" className="validate" value={ this.state.password } onChange={ this.handlePasswordChange } />
-			          <label htmlFor="icon_password">password</label>
-			        </div>
-			        <input type="submit"  className="waves-effect waves-dark btn" value="Login" />
-			 </form>
-			</div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <tr >
+      <th > {o.question} </th>
+      <th > {o.answer} </th>
+      <th className="col-md-4"><a href={'questionaires/' + o._id.$oid} className="btn">edit</a><a href={'questionaires/destroy/' + o._id.$oid} className="btn" >delete</a></th></tr>
+    );
+  });
+    return (
+      <div className="row">
+                    <div className="col-md-12">
+                        <table className="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th className="col-md-4">Question</th>
+                                <th >Answer</th>
+                                <th className="col-md-4">Option</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              {questionaires}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="center"><a href="questionaires/new" className="waves-effect waves-light btn">Add</a><a href="questionaires/home" className="waves-effect waves-light btn">Back</a></div>
+                </div>
       
     )
   }

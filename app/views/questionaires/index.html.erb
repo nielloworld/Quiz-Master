@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'application' %>
+<%= react_component 'Navbar', {title: "Quiz Master" } %>
+<%= react_component 'Questionaires', {questionaires: @questionaires} %>
+<!--<p id="notice"><%= notice %></p>
 
 <h1>Questionaires</h1>
 
@@ -26,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Questionaire', new_questionaire_path %>
+<%= link_to 'New Questionaire', new_questionaire_path %> -->
