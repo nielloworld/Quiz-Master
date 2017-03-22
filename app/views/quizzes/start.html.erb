@@ -1,0 +1,7 @@
+<%= stylesheet_link_tag 'application' %>
+<%= react_component 'Navbar', {title: "Quiz Master" } %>
+<% if @current_admin == "1" %>
+<%= react_component 'QuizAdmin', { current_name: @current_name } %>
+<% else %>
+<%= react_component 'Quiz', { current_name: @current_name } %>
+<% end %>

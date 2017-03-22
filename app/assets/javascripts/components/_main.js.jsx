@@ -70,12 +70,14 @@ var Main = React.createClass({
               <form onSubmit={this.handleSubmit}>
 			        <div className="input-field col s6">
 			          <i className="material-icons prefix">account_circle</i>
-			          <input ref='name' id="icon_prefix" type="text" className="validate" value={this.state.name} onChange={this.handleNameChange} />
+			          <input ref='name' id="icon_prefix" type="text" className="validate" value={this.state.name} onChange={this.handleNameChange} required={true}
+          minCharacters={3} maxcharacters={10} />
 			          <label htmlFor="icon_prefix">Name</label>
 			        </div>
 			        <div className="input-field col s6">
 			          <i className="material-icons prefix">lock</i>
-			          <input ref='password' id="icon_password" type="password" className="validate" value={ this.state.password } onChange={ this.handlePasswordChange } />
+			          <input ref='password' id="icon_password" type="password" className="validate" value={ this.state.password } onChange={ this.handlePasswordChange } required={true}
+          minCharacters={3} maxcharacters={10} />
 			          <label htmlFor="icon_password">password</label>
 			        </div>
 			        <input type="submit"  className="waves-effect waves-dark btn" value="Login" />

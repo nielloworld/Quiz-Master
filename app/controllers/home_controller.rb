@@ -22,6 +22,31 @@ class HomeController < ApplicationController
   end
 
   def questionaires
+    @current_user = session[:current_user]
+    if @current_user.nil?
+      redirect_to "/"
+     else
     redirect_to "/questionaires"
+    end
+  end
+
+  def start
+    @current_user = session[:current_user]
+    @current_name = session[:current_name]
+    @current_admin = session[:current_admin]
+    if @current_user.nil?
+          redirect_to "/"
+     else
+    redirect_to "/quiz/start"
+    end
+  end
+
+  def review
+    @current_user = session[:current_user]
+    if @current_user.nil?
+      redirect_to "/"
+     else
+    redirect_to "/quiz/review"
+    end
   end
 end

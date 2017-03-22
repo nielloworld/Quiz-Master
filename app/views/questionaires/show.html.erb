@@ -1,8 +1,10 @@
+<%= react_component 'Navbar', {title: "Quiz Master" } %>
+<div class="center card">
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Question:</strong>
-  <%= @questionaire.question %>
+  <%= render html: @questionaire.question.html_safe %>
 </p>
 
 <p>
@@ -10,5 +12,7 @@
   <%= @questionaire.answer %>
 </p>
 
-<%= link_to 'Edit', edit_questionaire_path(@questionaire) %> |
-<%= link_to 'Back', questionaires_path %>
+<div class="btn"><%= link_to 'Edit', edit_questionaire_path(@questionaire) %></div> |
+<div class="btn"><%= link_to 'Back', questionaires_path %></div>
+
+<div>

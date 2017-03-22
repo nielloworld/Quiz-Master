@@ -5,6 +5,7 @@ class ExamRecordsController < ApplicationController
   # GET /exam_records.json
   def index
     @exam_records = ExamRecord.all
+    @questionaires = Questionaire.all
   end
 
   # GET /exam_records/1

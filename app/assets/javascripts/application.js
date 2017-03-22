@@ -18,4 +18,6 @@
 //= require components
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
+//= require trix
+//= require showdown
 //= require_tree .

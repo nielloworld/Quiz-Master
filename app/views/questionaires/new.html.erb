@@ -1,6 +1,5 @@
-
-<%= stylesheet_link_tag 'application' %>
 <%= react_component 'Navbar', {title: "Quiz Master" } %>
-<%= react_component 'Questionaires_add', {questionaire: @questionaire} %>
+
+<%= render 'form', questionaire: @questionaire %>
 
 <%= link_to 'Back', questionaires_path %>

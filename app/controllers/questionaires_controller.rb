@@ -1,12 +1,21 @@
 class QuestionairesController < ApplicationController
-  before_action :set_questionaire, only: [:show, :edit, :update, :destroy]
+  before_action  :set_questionaire, only: [:show, :edit, :update, :destroy]
 
   # GET /questionaires
   # GET /questionaires.json
   def index
     @questionaires = Questionaire.all
-  end
+    @current_user = session[:current_user]
+     if @current_user.nil?
+      redirect_to "/"
+     end  
+   end
 
+  def user_is_logged_in
+    if !session[:current_user]
+        redirect_to "/"
+    end
+end
   # GET /questionaires/1
   # GET /questionaires/1.json
   def show
@@ -15,10 +24,18 @@ class QuestionairesController < ApplicationController
   # GET /questionaires/new
   def new
     @questionaire = Questionaire.new
+        @current_user = session[:current_user]
+     if @current_user.nil?
+      redirect_to "/"
+     end
   end
 
   # GET /questionaires/1/edit
   def edit
+        @current_user = session[:current_user]
+     if @current_user.nil?
+      redirect_to "/"
+     end
   end
 
   # POST /questionaires
@@ -54,6 +71,10 @@ class QuestionairesController < ApplicationController
   # DELETE /questionaires/1
   # DELETE /questionaires/1.json
   def destroy
+        @current_user = session[:current_user]
+     if @current_user.nil?
+      redirect_to "/"
+     end
     @questionaire.destroy
     respond_to do |format|
       format.html { redirect_to questionaires_url, notice: 'Questionaire was successfully destroyed.' }
@@ -73,6 +94,5 @@ class QuestionairesController < ApplicationController
     def questionaire_params
       params.require(:questionaire).permit(:question, :answer)
     end
-
 
 end
