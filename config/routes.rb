@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :quizzes
   get 'home/index'
   get 'welcome/modify_session_variables'
   get 'welcome/index'
@@ -8,14 +7,15 @@ Rails.application.routes.draw do
   get 'home/logout'
   get 'home/questionaires'
   get 'home/start'
-  get 'home/review'
   get 'questionaires/home'
   get 'questionaires/destroy/:id' => 'questionaires#destroy'
   get 'quiz/start' => 'quizzes#start'
-  get 'quiz/review' => 'quizzes#review'
+  get 'quiz/result' => 'quizzes#result'
+  get 'quiz/showResult' => 'quizzes#showResult'
 	  root to: 'welcome#index'
 	  post 'users/new'
 	  post 'users/create'
+    resources :quizzes
   resources :exam_records
   resources :questionaires
   resources :users

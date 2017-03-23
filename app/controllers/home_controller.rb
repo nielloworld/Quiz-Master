@@ -41,12 +41,4 @@ class HomeController < ApplicationController
     end
   end
 
-  def review
-    @current_user = session[:current_user]
-    if @current_user.nil?
-      redirect_to "/"
-     else
-    redirect_to "/quiz/review"
-    end
-  end
 end

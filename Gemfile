@@ -46,6 +46,10 @@ gem 'trix'
 # Showdown converter of html
 gem 'showdown-rails'
 
+# numberwordsConverter
+gem 'finishing_moves'
+gem 'numbers_in_words'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
