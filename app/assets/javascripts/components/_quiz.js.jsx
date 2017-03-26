@@ -10,7 +10,6 @@ var Quiz = React.createClass({
       sample.push(initiate);
     return sample ;
   });
-  console.log(this.props.questionaires);
   var trya = {};
     for(x=0; x < answers.length; x++){
     trya[answers[x]] = '';
@@ -67,8 +66,6 @@ var Quiz = React.createClass({
            data: {
            resultquiz: sendResult},
            success: function() {
-                Materialize.toast("Login Successful", 1000, 'rounded');      
-           var root = location.protocol + '//' + location.host;
            }
 
          });
