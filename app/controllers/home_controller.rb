@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
 
-  	 @current_user = session[:current_user]
-        @current_name = session[:current_name]
+  	@current_user = session[:current_user]
+    @current_name = session[:current_name]
     @current_admin = session[:current_admin]
   	 if @current_user.nil?
   	 	redirect_to "/"

@@ -4,14 +4,9 @@ var Result = React.createClass({
     result: React.PropTypes.object
   },
 
-   getInitialState: function() {
-      console.log(this.props.result)
-        return {name: '', password: ''};
-  },
   render: function() {
     var sconverter = new showdown.Converter();
     var newArrayDataOfObject = Object.values(this.props.result);
-    console.log(newArrayDataOfObject);
     return (
       <div className="row center">
         <div className="col-md-12 center">
