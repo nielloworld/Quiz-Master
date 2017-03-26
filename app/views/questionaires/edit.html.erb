@@ -1,0 +1,7 @@
+<%= react_component 'Navbar', {title: "Quiz Master" } %>
+<%= render 'form', questionaire: @questionaire %>
+
+<div class=center>
+<div class="btn"><%= link_to 'Show', @questionaire %></div> |
+<div class="btn"><%= link_to 'Back', questionaires_path %></div>
+</div>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @exam_record.user_id %>
+</p>
+
+<p>
+  <strong>Exam items:</strong>
+  <%= @exam_record.exam_items %>
+</p>
+
+<%= link_to 'Edit', edit_exam_record_path(@exam_record) %> |
+<%= link_to 'Back', exam_records_path %>

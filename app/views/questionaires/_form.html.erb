@@ -1,0 +1,28 @@
+
+<%= form_for(questionaire) do |f| %>
+  <% if questionaire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(questionaire.errors.count, "error") %> prohibited this questionaire from being saved:</h2>
+
+      <ul>
+      <% questionaire.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :question %>
+    <%= f.trix_editor :question %>
+  </div>
+
+  <div class="field">
+    <%= f.label :answer %>
+    <%= f.text_field :answer, :required => true %>
+  </div>
+
+  <div class="actions center">
+    <%= f.submit %>
+  </div>
+<% end %>
