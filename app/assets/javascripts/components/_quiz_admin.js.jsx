@@ -10,6 +10,7 @@ var QuizAdmin = React.createClass({
       sample.push(initiate);
     return sample ;
   });
+  console.log(this.props.questionaires);
   var trya = {};
     for(x=0; x < answers.length; x++){
     trya[answers[x]] = '';

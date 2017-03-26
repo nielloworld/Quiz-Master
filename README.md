@@ -1,24 +1,13 @@
 # README Quiz Master
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
-2.4.0 
-* System dependencies
+  2.4.0 
+ --------------------
+ *
 
-* Configuration
+To install:
+bundle install
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+admin access: admin/admin
+student access: student/student

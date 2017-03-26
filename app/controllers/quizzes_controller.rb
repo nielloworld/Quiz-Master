@@ -117,14 +117,14 @@ end
             if y[:answer].to_i  == y[:useranswer].to_i 
               @result[x][:correct] = "correct"
             else
-              @result[x][:correct] = y[:answer].to_i
+              @result[x][:correct] = "incorrect"
             end 
           else 
              @temp = NumbersInWords.in_numbers(y[:useranswer]) 
              if y[:answer].to_i  == @temp.to_i 
               @result[x][:correct] = "correct"
              else
-              @result[x][:correct] = @temp
+              @result[x][:correct] = "incorrect"
              end 
           end
         else
@@ -133,13 +133,13 @@ end
              if y[:answer].to_i  == @temp.to_i 
               @result[x][:correct] = "correct"
              else
-              @result[x][:correct] = "false"
+              @result[x][:correct] = "incorrect"
              end 
           else 
              if y[:answer].downcase.remove_whitespace == y[:useranswer].downcase.remove_whitespace
               @result[x][:correct] = "correct"
             else
-              @result[x][:correct] = "false"
+              @result[x][:correct] = "incorrect"
             end 
           end 
         end     
@@ -152,6 +152,9 @@ end
 def showResult
 
 end
+def home
+  redirect_to "/home/index"
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quiz

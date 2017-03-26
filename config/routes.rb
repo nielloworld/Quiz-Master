@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'quiz/start' => 'quizzes#start'
   get 'quiz/result' => 'quizzes#result'
   get 'quiz/showResult' => 'quizzes#showResult'
+  get 'quiz/home' => 'quizzes#home'
 	  root to: 'welcome#index'
 	  post 'users/new'
 	  post 'users/create'
